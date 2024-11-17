@@ -1,0 +1,116 @@
+/* PageTwo Container Styles */
+.PageTwo {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    animation: fadeIn 0.6s ease-out;
+    /* Keeping the original background from your first CSS */
+    background: transparent;
+}
+
+/* Name Display Section */
+.NameDiv {
+    padding: 1.5rem 2rem;
+    text-align: left;
+}
+
+#NameHeading {
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Navigation Buttons Container */
+#SecondPageButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Navigation Buttons */
+#TodoAppNav button,
+#ProjectBuilderNav button {
+    width: 100%;
+    padding: 2rem 3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    background: #000;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
+}
+
+/* Button States and Effects */
+#TodoAppNav button,
+#ProjectBuilderNav button {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+#TodoAppNav button:hover,
+#ProjectBuilderNav button:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+}
+
+#TodoAppNav button:active,
+#ProjectBuilderNav button:active {
+    transform: translateY(0);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .PageTwo {
+        padding: 1.5rem;
+    }
+
+    #NameHeading {
+        font-size: 2.5rem;
+    }
+
+    #TodoAppNav button,
+    #ProjectBuilderNav button {
+        font-size: 1.8rem;
+        padding: 1.5rem;
+    }
+}
+
+/* Remember to keep the original body background from your first CSS */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #7F53AC, #647DEE);
+    padding: 20px;
+    gap: 2rem;
+}

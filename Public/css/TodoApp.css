@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #7F53AC, #647DEE);
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.header {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+/* Sidebar Styles */
+.side-nav {
+    width: 110px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(50px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 12px;
+    margin: 0 auto;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.user div {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.user h2 {
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.user p {
+    color: #fff;
+    opacity: 0.9;
+}
+
+.user-img {
+    width: 40px;
+    border-radius: 50%;
+    margin: auto;
+    transition: transform 0.3s ease;
+}
+
+.user-img:hover {
+    transform: scale(1.1);
+}
+
+.star-img {
+    width: 20px;
+    display: none;
+    transition: transform 0.3s ease;
+}
+
+.star-img:hover {
+    transform: rotate(72deg) scale(1.2);
+}
+
+/* Navigation Lists */
+ul {
+    list-style: none;
+    padding: 0 10px;
+}
+
+ul li {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+ul li:hover::before {
+    left: 100%;
+}
+
+ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+ul li img {
+    width: 20px;
+    margin-right: 0;
+    transition: transform 0.3s ease;
+}
+
+ul li:hover img {
+    transform: scale(1.1);
+}
+
+ul li p {
+    display: none;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Sidebar Hover Effects */
+.side-nav:hover {
+    width: 250px;
+}
+
+.side-nav:hover .user div {
+    display: block;
+    opacity: 1;
+}
+
+.side-nav:hover .user {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.side-nav:hover .star-img {
+    display: block;
+}
+
+.side-nav:hover .user-img {
+    margin: 0;
+}
+
+.side-nav:hover ul li p {
+    display: block;
+    opacity: 1;
+}
+
+.side-nav:hover ul li img {
+    margin-right: 10px;
+}
+
+.side-nav:hover ul li {
+    justify-content: flex-start;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    margin-left: 110px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.todo-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100%;
+    padding: 20px;
+}
+
+/* Todo Creation Box Styles */
+.TodoCreatDisplay {
+    width: 900px;
+    min-height: 600px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.todo-header {
+    padding: 25px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.todo-header h1 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#Todo-Container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    min-height: 400px;
+}
+
+.todo-footer {
+    padding: 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+
+.todo-input-group {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+#InputTodo {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    resize: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    height: 55px;
+}
+
+#InputTodo:focus {
+    outline: none;
+    border-color: #7F53AC;
+    box-shadow: 0 0 0 3px rgba(127, 83, 172, 0.1);
+}
+
+.add-todo-btn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #7F53AC, #647DEE);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(127, 83, 172, 0.2);
+}
+
+.add-todo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(127, 83, 172, 0.3);
+}
+
+.add-todo-btn:active {
+    transform: translateY(1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .TodoCreatDisplay {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .main-content {
+        margin-left: 70px;
+    }
+
+    .side-nav {
+        width: 70px;
+    }
+
+    .side-nav:hover {
+        width: 200px;
+    }
+
+    .todo-input-group {
+        flex-direction: column;
+    }
+
+    .add-todo-btn {
+        width: 100%;
+    }
+}

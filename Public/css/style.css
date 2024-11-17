@@ -1,0 +1,212 @@
+/* Modern CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #7F53AC, #647DEE);
+    padding: 20px;
+    gap: 2rem;
+}
+
+/* Heading Styles */
+#Heading {
+    color: #fff;
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+    animation: fadeInDown 0.8s ease-out;
+    letter-spacing: -2px;
+}
+
+/* Main Form Container */
+.Form-Class {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem; /* Reduced padding for a more compact form */
+    border-radius: 20px; /* Slightly smaller border radius */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 480px; /* Keeping the max-width the same */
+    animation: slideUpFade 0.8s ease-out;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Reduced gap between the elements */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.Form-Class:hover {
+    transform: translateY(-8px);
+}
+
+/* Form Elements */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.label {
+    display: block;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.name, .InputForm {
+    width: 100%;
+    padding: 1.2rem;
+    border: 2px solid #E2E8F0;
+    border-radius: 15px;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.name:focus, .InputForm:focus {
+    outline: none;
+    border-color: #fff; /* White border on focus */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* White glow effect */
+    transform: scale(1.02);
+}
+
+.name::placeholder, .InputForm::placeholder {
+    color: #A0AEC0;
+}
+
+/* Form Divider */
+form + form {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 2rem;
+}
+
+/* Enhanced Submit Button */
+.Submit {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(135deg, #6D28D9, #9F7AEA);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.Submit:hover {
+    background: linear-gradient(135deg, #5B21B6, #8B5CF6);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.5);
+}
+
+.Submit:active {
+    transform: translateY(0);
+}
+
+/* Submit Button Animation */
+.Submit::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.Submit:hover::after {
+    left: 100%;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    #heading {
+        font-size: 2.5rem;
+    }
+
+    .Form-Class {
+        padding: 1rem;
+    }
+
+    .name, .InputForm, .Submit {
+        padding: 1rem;
+    }
+
+    .label {
+        font-size: 1.2rem;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .Form-Class {
+        background: rgba(26, 32, 44, 0.95);
+    }
+
+    .label {
+        color: #E2E8F0;
+    }
+
+    .name, .InputForm {
+        background: rgba(45, 55, 72, 0.8);
+        border-color: #4A5568;
+        color: white;
+    }
+
+    .name::placeholder, .InputForm::placeholder {
+        color: #718096;
+    }
+
+    .name:focus, .InputForm:focus {
+        border-color: #8B5CF6;
+        box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.4);
+    }
+}
+
+
+
+/* ----------------------------------------Page Two ---------------------------------------------------- */
