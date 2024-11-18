@@ -1,5 +1,5 @@
 
-BaseApi="http://localhost:3000"
+BaseApi="https://todobackendfullstack.onrender.com";
 
 
 // SignUp -(BE Done -Tested) -(FE Done -Tested) -(bcrypted) -(DB done)
@@ -27,46 +27,53 @@ async function Signin(){
     const username=document.getElementById("SignInUsername").value;
     const password=document.getElementById("SignInPassword").value;
 
-    try{
-        const response = await axios.post(`${BaseApi}/signin`,{username,password});
-        if(!response.data){
-            alert("Bad Credentials");
-        }
-        else{
-            const heading = document.getElementById("Heading");
-            const formClass = document.getElementById("Form-Class");
-            const pageTwo = document.getElementById("PageTwo");
-            
-            if(heading){
-                heading.style.display="none";
+    if(username && password){
+        try{
+            const response = await axios.post(`${BaseApi}/signin`,{username,password});
+            if(!response.data){
+                alert("Bad Credentials");
             }
             else{
-                console.error("heading not found.");
-            }
-            if(formClass){
-                formClass.style.display="none";
-            }
-            else{
-                console.error("formClass not found.");
-            }            
-            if(pageTwo){
-                pageTwo.style.display="block";
-            }
-            else{
-                console.error("pagetwo not found.");
-            }
-
-            localStorage.setItem("token", response.data.token);
-            alert("You have been signed in successfully");
-            // Display Second Page  
-        }
-        //function to display second part of the page declared
-    }
-    catch(err){
-        console.log("The error is ",err);
-        alert("Error signing in. Please try again.");
-    }
+                const heading = document.getElementById("Heading");
+                const formClass = document.getElementById("Form-Class");
+                const pageTwo = document.getElementById("PageTwo");
+                
+                if(heading){
+                    heading.style.display="none";
+                }
+                else{
+                    console.error("heading not found.");
+                }
+                if(formClass){
+                    formClass.style.display="none";
+                }
+                else{
+                    console.error("formClass not found.");
+                }            
+                if(pageTwo){
+                    pageTwo.style.display="block";
+                }
+                else{
+                    console.error("pagetwo not found.");
+                }
     
+                localStorage.setItem("token", response.data.token);
+                alert("You have been signed in successfully");
+                // Display Second Page  
+            }
+            //function to display second part of the page declared
+        }
+        catch(err){
+            console.log("The error is ",err);
+            alert("Error signing in. Please try again.");
+        }
+    }
+    else{
+        alert("Enter Valid Username and Password");
+    }
+
+    
+
 
 }
 // Done Working on  -(BE Done -Tested) -(FE Done -Tested) -(bcrypted) -(DB done)
