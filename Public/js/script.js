@@ -1,5 +1,6 @@
 
 BaseApi="https://todobackendfullstack.onrender.com";
+ML_Model_Url="https://gemini-ai-7xkm.onrender.com";
 
 
 // SignUp -(BE Done -Tested) -(FE Done -Tested) -(bcrypted) -(DB done)
@@ -260,5 +261,130 @@ async function fetchcontent(){
 
 // Yet to be created
 async function callprojectbuilder(){
+    document.getElementById("PageTwo").style.display="none";
+    document.getElementById("Project-Builder").style.display="block";
+    
+    // 
+    document.getElementById("priority-btn").addEventListener("click", async (event) => {
+        event.preventDefault();
+        const task = document.getElementById("task").value;
 
+        try{
+            const recommendpriority = await fetch(`${ML_Model_Url}/recommendpriority` , {
+                method : "POST",
+                headers : {"Content-Type" : "application/json" },
+                body:JSON.stringify({task})
+            });
+
+            const resultpriority = await recommendpriority.json();
+            document.getElementById("priority").textContent = resultpriority.priority || resultpriority.error;
+        }catch(error){
+            console.error("Error:" , error);
+            document.getElementById("priority").textContent = "An error occured.";
+        }
+    }); 
+
+// 
+    document.getElementById("roadmap-btn").addEventListener("click", async (event) => {
+        event.preventDefault();
+        const task = document.getElementById("task").value;
+        try{
+            const recommendroadmap = await fetch(`${ML_Model_Url}/recommendroadmap` , {
+                method : "POST",
+                headers : {"Content-Type" : "application/json" },
+                body:JSON.stringify({task})
+            });
+
+            const resultroadmap = await recommendroadmap.json()
+            document.getElementById("roadmap").textContent = resultroadmap.roadmap || resultroadmap.error;
+        }catch(error){
+            console.error("Error:" , error);
+            document.getElementById("priority").textContent = "An error occured.";
+        }
+    });
+
+// 
+
+
+// 
+document.getElementById("priority-btn").addEventListener("click", async (event) => {
+    event.preventDefault();
+    const task = document.getElementById("task").value;
+
+    try{
+        const recommendpriority = await fetch(`${ML_Model_Url}/recommendpriority` , {
+            method : "POST",
+            headers : {"Content-Type" : "application/json" },
+            body:JSON.stringify({task})
+        });
+
+        const resultpriority = await recommendpriority.json();
+        document.getElementById("priority").textContent = resultpriority.priority || resultpriority.error;
+    }catch(error){
+        console.error("Error:" , error);
+        document.getElementById("priority").textContent = "An error occured.";
+    }
+});
+
+// 
+document.getElementById("roadmap-btn").addEventListener("click", async (event) => {
+    event.preventDefault();
+    const task = document.getElementById("task").value;
+    try{
+        const recommendroadmap = await fetch(`${ML_Model_Url}/recommendroadmap` , {
+            method : "POST",
+            headers : {"Content-Type" : "application/json" },
+            body:JSON.stringify({task})
+        });
+
+        const resultroadmap = await recommendroadmap.json()
+        document.getElementById("roadmap").textContent = resultroadmap.roadmap || resultroadmap.error;
+    }catch(error){
+        console.error("Error:" , error);
+        document.getElementById("priority").textContent = "An error occured.";
+    }
+});
+
+// 
+
+document.getElementById("module-btn").addEventListener("click", async (event) => {
+    event.preventDefault();
+    const task = document.getElementById("task").value;
+    try{
+        const recommendmodule = await fetch(`${ML_Model_Url}/recommendmodule` , {
+            method : "POST",
+            headers : {"Content-Type" : "application/json" },
+            body:JSON.stringify({task})
+        });
+
+        const resultmodule = await recommendmodule.json()
+        document.getElementById("module").textContent = resultmodule.module || resultmodule.error;
+    }catch(error){
+        console.error("Error:" , error);
+        document.getElementById("module").textContent = "An error occured.";
+    }
+});
+
+// 
+document.getElementById("ask-query-btn").addEventListener("click", async (event) => {
+    event.preventDefault();
+    const task = document.getElementById("task").value;
+    const query = document.getElementById("query").value;
+
+    try {
+        const response = await fetch(`${ML_Model_Url}/recommend`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ task, query })
+        });
+
+        const result = await response.json();
+        document.getElementById("response").textContent = result.recommendation || result.error;
+    } catch (error) {
+        console.error("Error:", error);
+        document.getElementById("response").textContent = "An error occurred.";
+    }
+});
+
+    
 }

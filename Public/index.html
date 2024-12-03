@@ -111,6 +111,46 @@
     </div>
 
 <!-- Final Project Builder - Third Page -->
+<div class="Project-Builder" id="Project-Builder" style="display: none;">
+    <header class="Heading-ProjectBuilder" id="Heading-ProjectBuilder">
+        <h1>Welcome To Project Builder</h1>
+        <div id="Warning-Para">
+            <p>Beta Version Alert !!!
+                - **Expect the unexpected! Our AI model is still learning and may occasionally surprise you with delays of up to 50 seconds. Your patience fuels innovation—thank you for being part of our journey!
+            </p>
+
+        </div>
+    </header>
+
+    <div class="Project-Builder-Container">
+        <div class="Project-Builder-Left">
+            <div id="task-form">
+                <label for="task">Enter Task:</label>
+                <textarea id="task" name="task" placeholder="Enter Task" required></textarea>
+                <button type="button" id="priority-btn">Generate Priority</button>
+                <button type="button" id="roadmap-btn">Generate Roadmap</button>
+                <button type="button" id="module-btn">Generate Module</button>
+            </div>
+            <div id="priority"></div>
+            <div id="roadmap"></div>
+            <div id="module"></div>
+        </div>
+
+        <div class="Project-Builder-Right">
+            <div id="query-form">
+                <label for="query">Query:</label>
+                <textarea type="text" id="query" name="query" placeholder="Enter Query"></textarea>
+                <button type="button" id="ask-query-btn">Ask Query</button>
+            </div>
+            <div id="response"></div>
+        </div>
+    </div>
+
+    <div class="logout-section">
+            <li><img src="images/TodoApp-img/logout.png" alt="Logout Icon" onclick="Logout()"><p>Logout</p></li>
+        
+    </div>
+</div>
     
 <script src="js/script.js"></script>
 </body>
