@@ -207,6 +207,11 @@ form + form {
     }
 }
 
-
-
+#QuotesPara{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 500;
+    font-style:oblique ;
+    font-display:initial;
+}
 /* ----------------------------------------Page Two ---------------------------------------------------- */
