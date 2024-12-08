@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +7,58 @@
     font-family: 'Arial', sans-serif;
 }
 
+
+.Homebtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.Homebtn img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.Homebtn img:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .Homebtn {
+        top: 10px;
+        right: 10px;
+    }
+
+    .Homebtn img {
+        width: 30px;
+        height: 30px;
+        padding: 7px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Homebtn {
+        top: 5px;
+        right: 5px;
+    }
+
+    .Homebtn img {
+        width: 25px;
+        height: 25px;
+        padding: 5px;
+    }
+}
 body {
     min-height: 100vh;
     background: linear-gradient(135deg, #7F53AC, #647DEE);
@@ -327,3 +381,7 @@ ul li p {
         width: 100%;
     }
 }
+
+
+
+

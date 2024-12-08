@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/TodoApp.css">
     <link rel="stylesheet" href="css/projectbuilder.css"> <!-- This feature is "Yet To Be Added"   -->
     <link rel="stylesheet" href="css/CssForDynamicHtml.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
     
 </head>
@@ -52,17 +53,29 @@
             <div id="TodoAppNav">
                 <button type="button" onclick="calltodo()">Todo App</button>
             </div>
-            <!-- Functionality yet to be added-->
+            <!-- Functionality yet to be added -->
             <div id="ProjectBuilderNav">
                 <button onclick="callprojectbuilder()">Project Builder</button> 
             </div>
         </div>
+
+        <footer>
+            <div class="logout-section">
+                <li><img src="images/TodoApp-img/logout.png" alt="Logout Icon" onclick="Logout()"><p>Logout</p></li>
+            
+        </div>
+        </footer>
 
     </div>
 
     <!-- Final Todo App - Third Page -->
     <div class="header" id="ThirdPage" style="display: none;"> 
         <!-- Sidebar Navigation -->
+         <header>
+            <div class="Homebtn">
+                <img src="./images/home.png" alt="Home Button" onclick="GetBackfFromTodo()"> <!-- To get back to the previous page -->
+            </div>
+         </header>
         <div class="side-nav">
             <div class="user">
                 <img src="images/TodoApp-img/user.png" alt="User Image" class="user-img">
@@ -75,14 +88,13 @@
 
             <ul class="nav-links">
                 <li><img src="images/TodoApp-img/Calender.png" alt="Dashboard Icon"><p>Calendar</p></li>
-                <li><img src="images/TodoApp-img/Day 7.png" alt="Reports Icon"><p>7 Day's Calendar</p></li>
                 <li><img src="images/TodoApp-img/reports.png" alt="Reports Icon"><p>Reports</p></li>
                 <li><img src="images/TodoApp-img/projects.png" alt="Projects Icon"><p>Our Projects</p></li>
                 <li><img src="images/TodoApp-img/members.png" alt="Members Icon"><p>Core Members</p></li>
                 <li><img src="images/TodoApp-img/setting.png" alt="Settings Icon"><p>Settings</p></li>
             </ul>
 
-            <ul class="logout-section">
+            <ul class="logout-section-Todo">
                 <li><img src="images/TodoApp-img/logout.png" alt="Logout Icon" onclick="Logout()"><p>Logout</p></li>
             </ul>
         </div>
@@ -119,6 +131,10 @@
                 - **Expect the unexpected! Our AI model is still learning and may occasionally surprise you with delays of up to 50 seconds. Your patience fuels innovation—thank you for being part of our journey!
             </p>
 
+        </div>
+
+       <div class="Homebtn">  <!-- To get back to the previous page -->
+            <img src="./images/home.png" alt="Home Button" onclick="GetBackFromBuilder()">
         </div>
     </header>
 

@@ -3,6 +3,19 @@ BaseApi="https://todobackendfullstack.onrender.com";
 ML_Model_Url="https://gemini-ai-7xkm.onrender.com";
 
 
+function GetBackfFromTodo(){
+    document.getElementById("PageTwo").style.display="block";
+    document.getElementById("ThirdPage").style.display="none";
+
+}
+
+function GetBackFromBuilder(){
+    document.getElementById("PageTwo").style.display="block";
+    document.getElementById("Project-Builder").style.display="none";
+
+}
+
+
 // SignUp -(BE Done -Tested) -(FE Done -Tested) -(bcrypted) -(DB done)
 async function Signup(){
     const username=document.getElementById("SignUpUsername").value;
@@ -29,6 +42,7 @@ async function Signin(){
     const password=document.getElementById("SignInPassword").value;
 
     if(username && password){
+        console.log(username  + "and" + password);
         try{
             const response = await axios.post(`${BaseApi}/signin`,{username,password});
             if(!response.data){

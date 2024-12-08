@@ -1,3 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #7F53AC, #647DEE);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    padding: 20px;
+    gap: 2rem;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 /* PageTwo Container Styles */
 .PageTwo {
     width: 100%;
@@ -7,7 +33,6 @@
     flex-direction: column;
     gap: 3rem;
     animation: fadeIn 0.6s ease-out;
-    /* Keeping the original background from your first CSS */
     background: transparent;
 }
 
@@ -23,6 +48,7 @@
     font-weight: 800;
     margin: 0;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+    letter-spacing: -1px;
 }
 
 /* Navigation Buttons Container */
@@ -44,34 +70,57 @@
     font-size: 2.5rem;
     font-weight: 700;
     color: white;
-    background: #000;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     position: relative;
     text-align: center;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Button States and Effects */
+/* Button Hover and Active States */
 #TodoAppNav button,
 #ProjectBuilderNav button {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+#TodoAppNav button::before,
+#ProjectBuilderNav button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent
+    );
+    transition: 0.5s;
+}
+
+#TodoAppNav button:hover::before,
+#ProjectBuilderNav button:hover::before {
+    left: 100%;
 }
 
 #TodoAppNav button:hover,
 #ProjectBuilderNav button:hover {
-    transform: translateY(-5px);
-    background: rgba(0, 0, 0, 0.9);
-    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+    transform: translateY(-10px);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 #TodoAppNav button:active,
 #ProjectBuilderNav button:active {
     transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Animations */
@@ -89,28 +138,33 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .PageTwo {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
     #NameHeading {
         font-size: 2.5rem;
+        text-align: center;
+    }
+
+    #SecondPageButtons {
+        gap: 1.5rem;
     }
 
     #TodoAppNav button,
     #ProjectBuilderNav button {
         font-size: 1.8rem;
-        padding: 1.5rem;
+        padding: 1.5rem 2rem;
     }
 }
 
-/* Remember to keep the original body background from your first CSS */
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #7F53AC, #647DEE);
-    padding: 20px;
-    gap: 2rem;
+@media (max-width: 480px) {
+    #NameHeading {
+        font-size: 2rem;
+    }
+
+    #TodoAppNav button,
+    #ProjectBuilderNav button {
+        font-size: 1.5rem;
+        padding: 1.2rem 1.5rem;
+    }
 }
