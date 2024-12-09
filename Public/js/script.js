@@ -22,9 +22,26 @@ async function Signup(){
     const password=document.getElementById("SignUpPassword").value;
     const name=document.getElementById("name").value;
 
+
+    
+    if (name.length < 3 || name.length > 50) {
+        alert('Name must be atleast 3 character long.');
+        return;
+    }
+    if (username.length < 3 || username.length > 50) {
+        alert('Username must be atleast 3 character long.');
+        return;
+    }
+    if (password.length < 3 || password.length > 50) {
+        alert('Password must be atleast 3 character long.');
+        return;
+    }
+
+    // console.log(`${username} ${password} ${name} point 1`);
     try{
         await axios.post(`${BaseApi}/signup`,{username,password,name});
         alert("Welcome! You are now Signed Up");
+        // console.log("Reached till point 2")
     }
     catch(err){
         console.log("The error is : ",err);
@@ -37,60 +54,53 @@ async function Signup(){
 }
 
 // SignIn -(BE Done -Tested) -(FE Done -Tested) -(bcrypted) -(DB done) -(JWT) - (Second page called)
-async function Signin(){
-    const username=document.getElementById("SignInUsername").value;
-    const password=document.getElementById("SignInPassword").value;
+async function Signin() {
+    const username = document.getElementById("SignInUsername").value;
+    const password = document.getElementById("SignInPassword").value;
 
-    if(username && password){
-        console.log(username  + "and" + password);
-        try{
-            const response = await axios.post(`${BaseApi}/signin`,{username,password});
-            if(!response.data){
+    if (username && password) {
+        try {
+            const response = await axios.post(`${BaseApi}/signin`, { username, password });
+
+            if (!response.data || !response.data.token) {
                 alert("Bad Credentials");
+                return;
             }
-            else{
-                const heading = document.getElementById("Heading");
-                const formClass = document.getElementById("Form-Class");
-                const pageTwo = document.getElementById("PageTwo");
-                
-                if(heading){
-                    heading.style.display="none";
-                }
-                else{
-                    console.error("heading not found.");
-                }
-                if(formClass){
-                    formClass.style.display="none";
-                }
-                else{
-                    console.error("formClass not found.");
-                }            
-                if(pageTwo){
-                    pageTwo.style.display="block";
-                }
-                else{
-                    console.error("pagetwo not found.");
-                }
-    
-                localStorage.setItem("token", response.data.token);
-                alert("You have been signed in successfully");
-                // Display Second Page  
+
+            // Store the token in localStorage
+            localStorage.setItem("token", response.data.token);
+
+            // Check if token is correctly set
+            if (!localStorage.getItem("token")) {
+                console.error("Token was not set in localStorage.");
+                alert("Can't sign you in. Please try again.");
+                return;
             }
-            //function to display second part of the page declared
-        }
-        catch(err){
-            console.log("The error is ",err);
+
+            // Update the UI for successful login
+            const heading = document.getElementById("Heading");
+            const formClass = document.getElementById("Form-Class");
+            const pageTwo = document.getElementById("PageTwo");
+
+            if (heading) heading.style.display = "none";
+            if (formClass) formClass.style.display = "none";
+            if (pageTwo) pageTwo.style.display = "block";
+
+            alert("You have been signed in successfully");
+        } catch (err) {
+            console.error("The error is:", err);
             alert("Error signing in. Please try again.");
         }
+    } else {
+        alert("Enter a valid username and password");
     }
-    else{
-        alert("Enter Valid Username and Password");
-    }
+}
+
 
     
 
 
-}
+
 // Done Working on  -(BE Done -Tested) -(FE Done -Tested) -(bcrypted) -(DB done)
 async function calltodo(){
     document.getElementById("PageTwo").style.display="none";
