@@ -1,6 +1,6 @@
 
 BaseApi="https://todobackendfullstack.onrender.com";
-ML_Model_Url="http://16.171.135.223:5001/";
+ML_Model_Url="http://16.171.135.223:5001";
 
 
 function GetBackfFromTodo(){
