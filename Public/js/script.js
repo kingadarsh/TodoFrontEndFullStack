@@ -1,6 +1,6 @@
 
 BaseApi="https://todobackendfullstack.onrender.com";
-ML_Model_Url="http://16.171.135.223:5001/";
+ML_Model_Url="http://16.171.135.223:5001";
 
 
 function GetBackfFromTodo(){
@@ -300,6 +300,7 @@ async function callprojectbuilder(){
                 body:JSON.stringify({task})
             });
 
+            console.log(`${recommendpriority}`);
             const resultpriority = await recommendpriority.json();
             document.getElementById("priority").textContent = resultpriority.priority || resultpriority.error;
         }catch(error){
