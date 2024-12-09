@@ -1,6 +1,6 @@
 
 BaseApi="https://todobackendfullstack.onrender.com";
-ML_Model_Url="http://16.171.135.223:5001";
+ML_Model_Url="https://flask-app-1-91t1.onrender.com";
 
 
 function GetBackfFromTodo(){
