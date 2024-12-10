@@ -321,10 +321,10 @@ async function callprojectbuilder(){
             });
 
             const resultroadmap = await recommendroadmap.json()
-            document.getElementById("roadmap").textContent = resultroadmap.roadmap || resultroadmap.error;
+            document.getElementById("roadmap").innerHTML = resultroadmap.roadmap || resultroadmap.error;
         }catch(error){
             console.error("Error:" , error);
-            document.getElementById("priority").textContent = "An error occured.";
+            document.getElementById("priority").innerHTML = "An error occured.";
         }
     });
 
@@ -363,10 +363,10 @@ document.getElementById("roadmap-btn").addEventListener("click", async (event) =
         });
 
         const resultroadmap = await recommendroadmap.json()
-        document.getElementById("roadmap").textContent = resultroadmap.roadmap || resultroadmap.error;
+        document.getElementById("roadmap").innerHTML = resultroadmap.roadmap || resultroadmap.error;
     }catch(error){
         console.error("Error:" , error);
-        document.getElementById("priority").textContent = "An error occured.";
+        document.getElementById("priority").innerHTML = "An error occured.";
     }
 });
 
@@ -383,10 +383,10 @@ document.getElementById("module-btn").addEventListener("click", async (event) =>
         });
 
         const resultmodule = await recommendmodule.json()
-        document.getElementById("module").textContent = resultmodule.module || resultmodule.error;
+        document.getElementById("module").innerHTML = resultmodule.module || resultmodule.error;
     }catch(error){
         console.error("Error:" , error);
-        document.getElementById("module").textContent = "An error occured.";
+        document.getElementById("module").innerHTML = "An error occured.";
     }
 });
 
@@ -404,10 +404,10 @@ document.getElementById("ask-query-btn").addEventListener("click", async (event)
         });
 
         const result = await response.json();
-        document.getElementById("response").textContent = result.recommendation || result.error;
+        document.getElementById("response").innerHTML = result.recommendation || result.error;
     } catch (error) {
         console.error("Error:", error);
-        document.getElementById("response").textContent = "An error occurred.";
+        document.getElementById("response").innerHTML = "An error occurred.";
     }
 });
 
