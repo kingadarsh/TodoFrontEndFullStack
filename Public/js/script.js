@@ -1,6 +1,6 @@
 
 BaseApi="https://todobackendfullstack.onrender.com";
-ML_Model_Url="https://flask-app-1-91t1.onrender.com";
+ML_Model_Url="https://task-genie-ai-provider.onrender.com";
 
 
 function GetBackfFromTodo(){
